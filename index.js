@@ -20,12 +20,11 @@ class Configstore {
 		const pathPrefix = opts.globalConfigPath ?
 			path.join(id, 'config.json') :
 			path.join('configstore', `${id}.json`);
-			if (opts.configPath) {
-				this.path = path.join(opts.configPath, 'config.json');
-			} else {
-				this.path = path.join(configDir, pathPrefix);
-			}
-		console.log('CONFIGPATH=',this.path);
+		if (opts.configPath) {
+			this.path = path.join(opts.configPath, 'config.json');
+		} else {
+			this.path = path.join(configDir, pathPrefix);
+		}
 		this.all = Object.assign({}, defaults, this.all);
 	}
 	get all() {
